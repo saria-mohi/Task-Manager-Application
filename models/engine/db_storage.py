@@ -39,7 +39,7 @@ class DBStorage:
             pool_pre_ping=False,
             echo=False,
         )
-
+ 
     def all(self, cls=None):
         """query on the current database session"""
         new_dict = {}

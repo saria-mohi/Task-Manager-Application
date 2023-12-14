@@ -140,6 +140,18 @@ def update_user(user_id):
         return render_template('profile.html')
     pass
  
+@app.route('/user/<user_id>/tasks/search/',methods=['POST'], strict_slashes=False)
+def search_task(user_id):
+    """search for tasks by name."""
+    name = request.form.get('name')
+
+    user_task = storage.get(User, user_id).tasks
+    user = storage.get(User, user_id)
+    
+    filtried_task = [task  for task in user_task if name.lower() in task.name.lower()] if name != '' else user_task
+    
+    return render_template('tasks.html', tasks=filtried_task, user=user,user_id=user_id)
+
 
 @app.route('/user/<user_id>/tasks', strict_slashes=False)
 def get_task(user_id):
