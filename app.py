@@ -48,6 +48,7 @@ def login_user():
     headers = {
         'Content-Type': 'application/json'
     }
+    print(obj)
     response = requests.post(url, json=obj, headers=headers)
     print("Hi", response.status_code)
     if response.status_code == 201:
@@ -90,6 +91,7 @@ def register_new():
     headers = {
         'Content-Type': 'application/json'
     }
+    print("laaaapllaaaaaaaapaaaaaaaaaaapaaaaaaaaap")
     url = "http://127.0.0.1:5100/api/v1/users"
     response = requests.post(url, json=obj, headers=headers)
     print("HI: ", response.status_code)
@@ -143,7 +145,8 @@ def update_user(user_id):
 def get_task(user_id):
     """Render the tasks page."""
     user_task = storage.get(User, user_id).tasks
-    return render_template('tasks.html', tasks=user_task, user_id=user_id)
+    user = storage.get(User, user_id)
+    return render_template('tasks.html', tasks=user_task, user=user,user_id=user_id)
 
   
 @app.route('/create_task/<user_id>', methods=['POST'], strict_slashes=False)

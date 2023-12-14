@@ -42,6 +42,7 @@ def delete_match(cls, id):
 
 
 def register_new(p_cls, ch_cls, p_id, kwargs):
+    print('hhhhhhhhhhhhhh')
     """POST: creating a new object for the class"""
     # validate if the id is associated with any object in the User table
     if p_cls == User and ch_cls is None:
@@ -97,6 +98,7 @@ def update_match(obj, kwargs):
   
 def validate_user(p_cls, kwargs):
     """POST: validate the user credentials"""
+    print('hhhhhhhhhhhhh222222222222222222222h')
     if "email" not in kwargs:
         return jsonify ({"error" :"Missing email"}), 400        
     if "password" not in kwargs:
