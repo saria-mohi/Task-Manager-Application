@@ -1,24 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Task Management Application</title>
-    <!-- plugins:css -->
-    <link rel="stylesheet" href="/static/vendors/mdi/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="/static/vendors/css/vendor.bundle.base.css">
-    <!-- endinject -->
-    <!-- Plugin css for this page -->
-    <!-- End plugin css for this page -->
-    <!-- inject:css -->
-    <!-- endinject -->
-    <!-- Layout styles -->
-    <link rel="stylesheet" href="/static/css/style.css">
-    <!-- End layout styles -->
-    <link rel="shortcut icon" href="/static/images/favicon.ico" />
-  </head>
-  <body>
+{% extends "base.html" %}
+{% block content %}
     <div class="container-scroller">
       <!-- partial:../../partials/_navbar.html -->
       <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
@@ -110,6 +91,7 @@
       <!-- partial -->
       <div class="container-fluid page-body-wrapper">
         <!-- partial:../../partials/_sidebar.html -->
+        
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
           <ul class="nav">
             <li class="nav-item nav-profile">
@@ -120,8 +102,8 @@
                   <!--change to offline or busy as needed-->
                 </div>
                 <div class="nav-profile-text d-flex flex-column">
-                  <span class="font-weight-bold mb-2">David Grey. H</span>
-                  <span class="text-secondary text-small">Project Manager</span>
+                  <span class="font-weight-bold mb-2">Siddeg Mohammd</span>
+
                 </div>
                 <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
               </a>
@@ -154,16 +136,24 @@
           <div class="content-wrapper">
             <div class="col-12">
               <div class="card">
+                
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <div class="alert">
+          {% for category, message in messages %}
+          <div class="alert alert-{{ category }}">{{ message }}</div>
+          {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
                 <div class="card-body">
                   <h4 class="card-title">ADD NEW TASK</h4>
-                    <form class="form-sample" id="task_form" action="http://127.0.0.1:5000/create_task/{{user_id}}" method="POST"
-                  onsubmit="return validateForm()"> 
-
-
+                  <form id="task_form" class="form-sample" action="http://127.0.0.1:5000/create_task/{{user_id}}" method="POST"
+                  onsubmit="return validateForm()">
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">First Name</label>
+                          <label class="col-sm-3 col-form-label">Task Name</label>
                           <div class="col-sm-9">
                             <input type="text" class="form-control" id="name" name="name" placeholder="Task Name" />
                           </div>
@@ -176,7 +166,7 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Start Date:</label>
                           <div class="col-sm-9">
-                            <input type="date" id="start_date" class="form-control" id="name" name="start_date" placeholder="Task Name" />
+                            <input type="date" id="start_date" class="form-control"name="start_date"  />
                           </div>
                         </div>
                       </div>
@@ -184,7 +174,7 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">End Date:</label>
                           <div class="col-sm-9">
-                            <input type="date" id="enddate" class="form-control" id="name" name="end_date" placeholder="Task Name" />
+                            <input type="date" id="end_date" class="form-control"  name="end_date" />
                           </div>
                         </div>
                       </div>
@@ -244,7 +234,7 @@
                     </div>
                     <!-- add button add task and cancel -->
                     <button type="submit" name="button" class="btn btn-gradient-primary btn-rounded mr-2"><i class="mdi mdi-plus-circle-outline"></i> Add Task</button>
-                    <button type="submit" name="button" class="btn btn-gradient-danger btn-rounded mr-2"><i class="mdi mdi-window-close"></i>  Cancel</button>
+                    <button  class="btn btn-gradient-danger btn-rounded mr-2"><i class="mdi mdi-window-close"></i>  Cancel</button>
                     
                    
                   </form>
@@ -252,33 +242,8 @@
               </div>
             </div>
           </div>
-          <!-- content-wrapper ends -->
-          <!-- partial:../../partials/_footer.html -->
-          <footer class="footer">
-            <div class="container-fluid d-flex justify-content-between">
-              <span class="text-muted d-block text-center text-sm-start d-sm-inline-block">Copyright © SARIAHUN</span>
-              <span class="float-none float-sm-end mt-1 mt-sm-0 text-end"> Free <a
-                  href="https://saria-mohi.github.io/sariaHub//" target="_blank">SARIA HUB</a> from sariahub.com</span>
-            </div>
-          </footer>
-          <!-- partial -->
-        </div>
-        <!-- main-panel ends -->
-      </div>
-      <!-- page-body-wrapper ends -->
-    </div>
-    <!-- container-scroller -->
-    <!-- plugins:js -->
-    <script src="../..//static/vendors/js/vendor.bundle.base.js"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page -->
-    <!-- End plugin js for this page -->
-    <!-- inject:js -->
-    <script src="../..//static/js/off-canvas.js"></script>
-    <script src="../..//static/js/hoverable-collapse.js"></script>
-    <script src="../..//static/js/misc.js"></script>
-    <!-- endinject -->
-    <!-- Custom js for this page -->
-    <!-- End custom js for this page -->
-  </body>
-</html>
+       {% block scripts %}
+    <script src="/static/js/taskValidation.js">
+    </script>
+    {% endblock %}
+     {% endblock %}

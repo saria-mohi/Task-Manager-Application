@@ -84,7 +84,16 @@ the root of the project.
 <details>
     <summary>Saria Mohammed</summary>
     <ul>
+    <li><a href="https://www.linkedin.com/in/saria-mohi-aldein-mohammed-b17630137/">LinkedIn</a></li>
     <li><a href="https://www.github.com/saria2016">GitHub</a></li>
     <li><a href="mailto:saria1904@gmail.com">Gmail</a></li>
+    </ul>
+</details>
+<details>
+    <summary>Sideeg Mohammed</summary>
+    <ul>
+    <li><a herf="https://www.linkedin.com/in/sideeg-mohammed-6ba443185/">LinkedIn</a></li>
+    <li><a href="https://github.com/sideeg/">GitHub</a></li>
+    <li><a href="mailto:sideegmohammednoor@gmail.com">Gmail</a></li>
     </ul>
 </details>

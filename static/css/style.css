@@ -11493,7 +11493,9 @@ code {
   border-radius: 100%; }
   .dot-indicator.dot-indicator-sm {
     width: 6px;
-    height: 6px; }
+    height: 6px; 
+    
+  }
 
 .bg-gradient-primary {
   background: -webkit-gradient(linear, left top, right top, from(#ba8cff), to(#9a55ff)) !important;
@@ -11501,7 +11503,7 @@ code {
 
 .bg-gradient-secondary {
   background: -webkit-gradient(linear, left top, right top, from(#497174), to(#EB6440)) !important;
-  background: linear-gradient(to right, #EB6440, #497174) !important; }
+  background: linear-gradient(to right, #bb9288, #90bfc3) !important; }
 
 .bg-gradient-success {
   background: -webkit-gradient(linear, left top, right top, from(#84d9d2), to(#07cdae)) !important;
@@ -14450,4 +14452,13 @@ dl {
 /*# sourceMappingURL=style.css.map */
 .justify{
   text-align: justify;
+}
+small{
+  color: red;
+}
+.error-message{
+	color: red;
+}
+.dis {
+	display: none !important;
 }
