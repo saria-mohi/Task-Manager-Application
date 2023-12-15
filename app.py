@@ -11,6 +11,18 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'os.urandom(32)'  # Replace with your secret key
 
 
+def order_task_by_priority(list_of_task):
+    low = []
+    medium = []
+    high = []
+    for task in list_of_task:
+        if task.priority == 'low':
+            low.append(task)
+        elif task.priority == 'medium':
+            medium.append(task)
+        else :
+            high.append(task)
+    return low + medium + high
 @app.teardown_appcontext
 def teardown_db(exception):
     """Close the database at the end of the request."""
@@ -149,14 +161,14 @@ def search_task(user_id):
     user = storage.get(User, user_id)
     
     filtried_task = [task  for task in user_task if name.lower() in task.name.lower()] if name != '' else user_task
-    
+    filtried_task = order_task_by_priority(filtried_task)
     return render_template('tasks.html', tasks=filtried_task, user=user,user_id=user_id)
 
 
 @app.route('/user/<user_id>/tasks', strict_slashes=False)
 def get_task(user_id):
     """Render the tasks page."""
-    user_task = storage.get(User, user_id).tasks
+    user_task = order_task_by_priority(storage.get(User, user_id).tasks)
     user = storage.get(User, user_id)
     return render_template('tasks.html', tasks=user_task, user=user,user_id=user_id)
 
