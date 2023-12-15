@@ -92,7 +92,7 @@ the root of the project.
 <details>
     <summary>Sideeg Mohammed</summary>
     <ul>
-    <li><a herf="https://www.linkedin.com/in/sideeg-mohammed-6ba443185/">LinkedIn</a></li>
+    <li><a href="https://www.linkedin.com/in/sideeg-mohammed-6ba443185/">LinkedIn</a></li>
     <li><a href="https://github.com/sideeg/">GitHub</a></li>
     <li><a href="mailto:sideegmohammednoor@gmail.com">Gmail</a></li>
     </ul>
