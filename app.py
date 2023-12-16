@@ -148,8 +148,9 @@ def update_user(user_id):
 
         return redirect(url_for('login'))
     else:
+        user = storage.get(User, user_id)
         flash("Faile to update credentials check your info ", "danger")
-        return render_template('profile.html')
+        return render_template('profile.html', user=user)
     pass
  
 @app.route('/user/<user_id>/tasks/search/',methods=['POST'], strict_slashes=False)
