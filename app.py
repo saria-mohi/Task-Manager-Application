@@ -134,7 +134,7 @@ def update_user(user_id):
     
     url = f"http://127.0.0.1:5100/api/v1/users/{user_id}"
     obj = {
-        'name': name,
+        'name': name ,
         'email': email,
         'password': password
 
