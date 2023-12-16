@@ -98,7 +98,6 @@ def update_match(obj, kwargs):
   
 def validate_user(p_cls, kwargs):
     """POST: validate the user credentials"""
-    print('hhhhhhhhhhhhh222222222222222222222h')
     if "email" not in kwargs:
         return jsonify ({"error" :"Missing email"}), 400        
     if "password" not in kwargs:

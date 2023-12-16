@@ -126,29 +126,38 @@ def edit_user(user_id):
 
 @app.route('/update_user/<user_id>', methods=['POST'], strict_slashes=False)
 def update_user(user_id):
-
+    user = storage.get(User, user_id)
     name = request.form['name']
     email = request.form['email']
     password = request.form['password']
     confirm_password = request.form['confirm_password']
-    
+    print(password,'*************************************')
     url = f"http://127.0.0.1:5100/api/v1/users/{user_id}"
-    obj = {
-        'name': name ,
-        'email': email,
-        'password': password
+    if password :
+        obj = {
+            'name': name ,
+            'email': email,
+            'password': password
 
-        }
+            }
+    else :
+        obj = {
+            'name': name ,
+            'email': email,
+
+            }
+
     headers = {
         'Content-Type': 'application/json'
     }
+    
     response = requests.put(url, json=obj, headers=headers)
     if response.status_code == 200:
         flash(f"User Information Successfully updated", 'success')
 
         return redirect(url_for('login'))
     else:
-        user = storage.get(User, user_id)
+        
         flash("Faile to update credentials check your info ", "danger")
         return render_template('profile.html', user=user)
     pass
