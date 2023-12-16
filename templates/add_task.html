@@ -1,249 +1,341 @@
-{% extends "base.html" %}
-{% block content %}
-    <div class="container-scroller">
-      <!-- partial:../../partials/_navbar.html -->
-      <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
-        <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-          <a class="navbar-brand brand-logo" href="index.html">TASK MANGER </a>
-          <a class="navbar-brand brand-logo-mini" href="index.html">T.M</a>
-        </div>
-        <div class="navbar-menu-wrapper d-flex align-items-stretch">
-          <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
-            <span class="mdi mdi-menu"></span>
-          </button>
-          <div class="search-field d-none d-md-block">
-            <form class="d-flex align-items-center h-100" action="#">
-              <div class="input-group">
-                <div class="input-group-prepend bg-transparent">
-                  <i class="input-group-text border-0 mdi mdi-magnify"></i>
-                </div>
-                <input type="text" class="form-control bg-transparent border-0" placeholder="Search projects">
-              </div>
-            </form>
+{% extends "base.html" %} {% block content %}
+<div class="container-scroller">
+  <!-- partial:../../partials/_navbar.html -->
+  <nav
+    class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row"
+  >
+    <div
+      class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center"
+    >
+      <a class="navbar-brand brand-logo" href="index.html">TASK MANGER </a>
+      <a class="navbar-brand brand-logo-mini" href="index.html">T.M</a>
+    </div>
+    <div class="navbar-menu-wrapper d-flex align-items-stretch">
+      <button
+        class="navbar-toggler navbar-toggler align-self-center"
+        type="button"
+        data-toggle="minimize"
+      >
+        <span class="mdi mdi-menu"></span>
+      </button>
+      <div class="search-field d-none d-md-block">
+        <form class="d-flex align-items-center h-100" action="#">
+          <div class="input-group">
+            <div class="input-group-prepend bg-transparent">
+              <i class="input-group-text border-0 mdi mdi-magnify"></i>
+            </div>
+            <input
+              type="text"
+              class="form-control bg-transparent border-0"
+              placeholder="Search projects"
+            />
           </div>
-          <ul class="navbar-nav navbar-nav-right">
-           
-            <li class="nav-item d-none d-lg-block full-screen-link">
-              <a class="nav-link">
-                <i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
-              </a>
-            </li>
-          
-            <li class="nav-item dropdown">
-              <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-bs-toggle="dropdown">
-                <i class="mdi mdi-bell-outline"></i>
-                <span class="count-symbol bg-danger"></span>
-              </a>
-              <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
-                <h6 class="p-3 mb-0">Notifications</h6>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <div class="preview-icon bg-success">
-                      <i class="mdi mdi-calendar"></i>
-                    </div>
-                  </div>
-                  <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                    <h6 class="preview-subject font-weight-normal mb-1">Event today</h6>
-                    <p class="text-gray ellipsis mb-0"> Just a reminder that you have an event today </p>
-                  </div>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <div class="preview-icon bg-warning">
-                      <i class="mdi mdi-settings"></i>
-                    </div>
-                  </div>
-                  <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                    <h6 class="preview-subject font-weight-normal mb-1">Settings</h6>
-                    <p class="text-gray ellipsis mb-0"> Update dashboard </p>
-                  </div>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <div class="preview-icon bg-info">
-                      <i class="mdi mdi-link-variant"></i>
-                    </div>
-                  </div>
-                  <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                    <h6 class="preview-subject font-weight-normal mb-1">Launch Admin</h6>
-                    <p class="text-gray ellipsis mb-0"> New admin wow! </p>
-                  </div>
-                </a>
-                <div class="dropdown-divider"></div>
-                <h6 class="p-3 mb-0 text-center">See all notifications</h6>
-              </div>
-            </li>
-            <li class="nav-item nav-logout d-none d-lg-block">
-              <a class="nav-link" href="index.html">
-                <i class="mdi mdi-power"></i>
-              </a>
-            </li>
-           
-          </ul>
-          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
-            <span class="mdi mdi-menu"></span>
-          </button>
-        </div>
-      </nav>
-      <!-- partial -->
-      <div class="container-fluid page-body-wrapper">
-        <!-- partial:../../partials/_sidebar.html -->
-        
-        <nav class="sidebar sidebar-offcanvas" id="sidebar">
-          <ul class="nav">
-            <li class="nav-item nav-profile">
-              <a href="#" class="nav-link">
-                <div class="nav-profile-image">
-                  <img src="/static/images/user.png" alt="profile">
-                  <span class="login-status online"></span>
-                  <!--change to offline or busy as needed-->
-                </div>
-                <div class="nav-profile-text d-flex flex-column">
-                  <span class="font-weight-bold mb-2">Siddeg Mohammd</span>
+        </form>
+      </div>
+      <ul class="navbar-nav navbar-nav-right">
+        <li class="nav-item d-none d-lg-block full-screen-link">
+          <a class="nav-link">
+            <i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
+          </a>
+        </li>
 
-                </div>
-                <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link " href="{{ url_for('get_task', user_id=user_id)}}">
-                <span class="menu-title">TASKS</span>
-                <i class="mdi mdi-home menu-icon"></i>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('add_task', user_id=user_id) }}">
-                <span class="menu-title">ADD TASK</span>
-                <i class="mdi mdi-note-plus menu-icon"></i>
-              </a>
-            </li>
-           
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('edit_user', user_id=user_id) }}">
-                <span class="menu-title">Profile</span>
-                <i class="mdi mdi-account-edit menu-icon"></i>
-              </a>
-            </li>
-           
-           
-          </ul>
-        </nav>
-        <!-- partial -->
-        <div class="main-panel">
-          <div class="content-wrapper">
-            <div class="col-12">
-              <div class="card">
-                
-        {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-        <div class="alert">
-          {% for category, message in messages %}
-          <div class="alert alert-{{ category }}">{{ message }}</div>
-          {% endfor %}
-        </div>
-        {% endif %}
-        {% endwith %}
-                <div class="card-body">
-                  <h4 class="card-title">ADD NEW TASK</h4>
-                  <form id="task_form" class="form-sample" action="http://127.0.0.1:5000/create_task/{{user_id}}" method="POST"
-                  onsubmit="return validateForm()">
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">Task Name</label>
-                          <div class="col-sm-9">
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Task Name" />
-                          </div>
-                        </div>
-                      </div>
-                      
-                    </div>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">Start Date:</label>
-                          <div class="col-sm-9">
-                            <input type="date" id="start_date" class="form-control"name="start_date"  />
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">End Date:</label>
-                          <div class="col-sm-9">
-                            <input type="date" id="end_date" class="form-control"  name="end_date" />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">Stop Time</label>
-                          <div class="col-sm-9">
-                            <input type="time" id="stop_time" class="form-control" name="stop_time">
-
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">Status</label>
-                          <div class="col-sm-9">
-                            <select id="status" name="status" class="form-control">
-                              <option value="pending" class="text-warning">Pending</option>
-                        <option value="active" class="text-success">Active</option>
-                        <option value="completed" class="text-primary">Completed</option>
-                        <option value="abort" class="text-danger">Abort</option>
-                            </select>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                   
-                   
-                    <div class="row">
-                      
-                      <div class="col-md-12">
-                        <div class="form-group row">
-                          <label class="col-sm-2 col-form-label">Priority:</label>
-                          <div class="col-sm-2">
-                            <div class="form-check">
-                              <label class="form-check-label text-primary ">
-                                <input type="radio" class="form-check-input" name="priority" value="low" checked> LOW </label>
-                            </div>
-                          </div>
-                          <div class="col-sm-2">
-                            <div class="form-check">
-                              <label class="form-check-label text-success">
-                                <input type="radio" class="form-check-input" name="priority" value="meduim"  > Medium </label>
-                            </div>
-                          </div>
-                          <div class="col-sm-2">
-                            <div class="form-check">
-                              <label class="form-check-label text-danger">
-                                <input type="radio" class="form-check-input" name="priority" value="high"> High </label>
-                            </div>
-                          </div>
-                        
-                        </div>
-                      </div>
-                    </div>
-                    <!-- add button add task and cancel -->
-                    <button type="submit" name="button" class="btn btn-gradient-primary btn-rounded mr-2"><i class="mdi mdi-plus-circle-outline"></i> Add Task</button>
-                    <button  class="btn btn-gradient-danger btn-rounded mr-2"><i class="mdi mdi-window-close"></i>  Cancel</button>
-                    
-                   
-                  </form>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link count-indicator dropdown-toggle"
+            id="notificationDropdown"
+            href="#"
+            data-bs-toggle="dropdown"
+          >
+            <i class="mdi mdi-bell-outline"></i>
+            <span class="count-symbol bg-danger"></span>
+          </a>
+          <div
+            class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+            aria-labelledby="notificationDropdown"
+          >
+            <h6 class="p-3 mb-0">Notifications</h6>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item preview-item">
+              <div class="preview-thumbnail">
+                <div class="preview-icon bg-success">
+                  <i class="mdi mdi-calendar"></i>
                 </div>
               </div>
+              <div
+                class="preview-item-content d-flex align-items-start flex-column justify-content-center"
+              >
+                <h6 class="preview-subject font-weight-normal mb-1">
+                  Event today
+                </h6>
+                <p class="text-gray ellipsis mb-0">
+                  Just a reminder that you have an event today
+                </p>
+              </div>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item preview-item">
+              <div class="preview-thumbnail">
+                <div class="preview-icon bg-warning">
+                  <i class="mdi mdi-settings"></i>
+                </div>
+              </div>
+              <div
+                class="preview-item-content d-flex align-items-start flex-column justify-content-center"
+              >
+                <h6 class="preview-subject font-weight-normal mb-1">
+                  Settings
+                </h6>
+                <p class="text-gray ellipsis mb-0">Update dashboard</p>
+              </div>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item preview-item">
+              <div class="preview-thumbnail">
+                <div class="preview-icon bg-info">
+                  <i class="mdi mdi-link-variant"></i>
+                </div>
+              </div>
+              <div
+                class="preview-item-content d-flex align-items-start flex-column justify-content-center"
+              >
+                <h6 class="preview-subject font-weight-normal mb-1">
+                  Launch Admin
+                </h6>
+                <p class="text-gray ellipsis mb-0">New admin wow!</p>
+              </div>
+            </a>
+            <div class="dropdown-divider"></div>
+            <h6 class="p-3 mb-0 text-center">See all notifications</h6>
+          </div>
+        </li>
+        <li class="nav-item nav-logout d-none d-lg-block">
+          <a class="nav-link" href="index.html">
+            <i class="mdi mdi-power"></i>
+          </a>
+        </li>
+      </ul>
+      <button
+        class="navbar-toggler navbar-toggler-right d-lg-none align-self-center"
+        type="button"
+        data-toggle="offcanvas"
+      >
+        <span class="mdi mdi-menu"></span>
+      </button>
+    </div>
+  </nav>
+  <!-- partial -->
+  <div class="container-fluid page-body-wrapper">
+    <!-- partial:../../partials/_sidebar.html -->
+
+    <nav class="sidebar sidebar-offcanvas" id="sidebar">
+      <ul class="nav">
+        <li class="nav-item nav-profile">
+          <a href="#" class="nav-link">
+            <div class="nav-profile-image">
+              <img src="/static/images/user.png" alt="profile" />
+              <span class="login-status online"></span>
+              <!--change to offline or busy as needed-->
+            </div>
+            <div class="nav-profile-text d-flex flex-column">
+              <span class="font-weight-bold mb-2">Siddeg Mohammd</span>
+            </div>
+            <i
+              class="mdi mdi-bookmark-check text-success nav-profile-badge"
+            ></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('get_task', user_id=user_id)}}">
+            <span class="menu-title">TASKS</span>
+            <i class="mdi mdi-home menu-icon"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('add_task', user_id=user_id) }}">
+            <span class="menu-title">ADD TASK</span>
+            <i class="mdi mdi-note-plus menu-icon"></i>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            href="{{ url_for('edit_user', user_id=user_id) }}"
+          >
+            <span class="menu-title">Profile</span>
+            <i class="mdi mdi-account-edit menu-icon"></i>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <!-- partial -->
+    <div class="main-panel">
+      <div class="content-wrapper">
+        <div class="col-12">
+          <div class="card">
+            {% with messages = get_flashed_messages(with_categories=true) %} {%
+            if messages %}
+            <div class="alert">
+              {% for category, message in messages %}
+              <div class="alert alert-{{ category }}">{{ message }}</div>
+              {% endfor %}
+            </div>
+            {% endif %} {% endwith %}
+            <div class="card-body">
+              <h4 class="card-title">ADD NEW TASK</h4>
+              <form
+                id="task_form"
+                class="form-sample"
+                action="{{ url_for('create_task', user_id=user_id) }}"
+                method="POST"
+              >
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label">Task Name</label>
+                      <div class="col-sm-9">
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="name"
+                          name="name"
+                          placeholder="Task Name"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label">Start Date:</label>
+                      <div class="col-sm-9">
+                        <input
+                          type="date"
+                          id="start_date"
+                          class="form-control"
+                          name="start_date"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label">End Date:</label>
+                      <div class="col-sm-9">
+                        <input
+                          type="date"
+                          id="end_date"
+                          class="form-control"
+                          name="end_date"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label">Stop Time</label>
+                      <div class="col-sm-9">
+                        <input
+                          type="time"
+                          id="stop_time"
+                          class="form-control"
+                          name="stop_time"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label">Status</label>
+                      <div class="col-sm-9">
+                        <select id="status" name="status" class="form-control">
+                          <option value="pending" class="text-warning">
+                            Pending
+                          </option>
+                          <option value="active" class="text-success">
+                            Active
+                          </option>
+                          <option value="completed" class="text-primary">
+                            Completed
+                          </option>
+                          <option value="abort" class="text-danger">
+                            Abort
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group row">
+                      <label class="col-sm-2 col-form-label">Priority:</label>
+                      <div class="col-sm-2">
+                        <div class="form-check">
+                          <label class="form-check-label text-primary">
+                            <input
+                              type="radio"
+                              class="form-check-input"
+                              name="priority"
+                              value="low"
+                              checked
+                            />
+                            LOW
+                          </label>
+                        </div>
+                      </div>
+                      <div class="col-sm-2">
+                        <div class="form-check">
+                          <label class="form-check-label text-success">
+                            <input
+                              type="radio"
+                              class="form-check-input"
+                              name="priority"
+                              value="meduim"
+                            />
+                            Medium
+                          </label>
+                        </div>
+                      </div>
+                      <div class="col-sm-2">
+                        <div class="form-check">
+                          <label class="form-check-label text-danger">
+                            <input
+                              type="radio"
+                              class="form-check-input"
+                              name="priority"
+                              value="high"
+                            />
+                            High
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- add button add task and cancel -->
+                <button
+                  type="submit"
+                  name="button"
+                  class="btn btn-gradient-primary btn-rounded mr-2"
+                >
+                  <i class="mdi mdi-plus-circle-outline"></i> Add Task
+                </button>
+                <button class="btn btn-gradient-danger btn-rounded mr-2">
+                  <i class="mdi mdi-window-close"></i> Cancel
+                </button>
+              </form>
             </div>
           </div>
-       {% block scripts %}
-    <script src="/static/js/taskValidation.js">
-    </script>
-    {% endblock %}
-     {% endblock %}
+        </div>
+      </div>
+      {% block scripts %}
+      <script src="/static/js/taskValidation.js"></script>
+      {% endblock %} {% endblock %}
+    </div>
+  </div>
+</div>

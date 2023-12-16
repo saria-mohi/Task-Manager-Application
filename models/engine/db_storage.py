@@ -19,10 +19,10 @@ class DBStorage:
 
     __engine = None
     __session = None
-    __usr = "task_admin"
-    __pswd = "task_pwd"
-    # __usr = "root"
-    # __pswd = ""
+    #__usr = "task_admin"
+    #__pswd = "task_pwd"
+    __usr = "root"
+    __pswd = ""
     
     __db = "task_db"
     __host = "localhost"
