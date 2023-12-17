@@ -46,7 +46,7 @@ The Task Manager APP includes the following key features:
 following command to clone and change the working directory into the root of this project:
 
 ```sh
-[git clone https://github.com/saria2016/alx_capstone_project.git && cd alx_capstone_project](https://github.com/saria-mohi/Task-Manager-Application)
+[https://github.com/saria-mohi/Task-Manager-Application]
 ```
 
 - Otherwise, clone the repository as you'd like and change the working directory into
