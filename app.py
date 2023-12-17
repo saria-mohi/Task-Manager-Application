@@ -180,7 +180,6 @@ def get_task(user_id):
     """Render the tasks page."""
     user_task = order_task_by_priority(storage.get(User, user_id).tasks)
     user = storage.get(User, user_id)
-    print(user_task[0],'&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&')
     return render_template('tasks.html', tasks=user_task, user=user,user_id=user_id)
 
   
