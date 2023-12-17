@@ -131,7 +131,7 @@ def update_user(user_id):
     email = request.form['email']
     password = request.form['password']
     confirm_password = request.form['confirm_password']
-    print(password,'*************************************')
+    # print(password,'*************************************')
     url = f"http://127.0.0.1:5100/api/v1/users/{user_id}"
     if password :
         obj = {
@@ -180,7 +180,7 @@ def get_task(user_id):
     """Render the tasks page."""
     user_task = order_task_by_priority(storage.get(User, user_id).tasks)
     user = storage.get(User, user_id)
-    print(user_task[0],'&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&')
+    # print(user_task[0])
     return render_template('tasks.html', tasks=user_task, user=user,user_id=user_id)
 
   
