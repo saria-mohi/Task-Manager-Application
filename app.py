@@ -131,7 +131,7 @@ def update_user(user_id):
     email = request.form['email']
     password = request.form['password']
     confirm_password = request.form['confirm_password']
-    print(password,'*************************************')
+    # print(password,'*************************************')
     url = f"http://127.0.0.1:5100/api/v1/users/{user_id}"
     if password :
         obj = {
