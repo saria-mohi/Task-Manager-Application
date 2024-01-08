@@ -84,7 +84,7 @@
 
               </div>
             </div>
-            <div class="row">
+            <div class="row"  style="margin-left: 5px; margin-bottom:5px">
               <div class="col-md-6">
                 <h6 class="card-text">Start Date: {{task.start_date}}</h6>
                 <h6 class="card-text">Status: {{task.status}}</h6>
@@ -96,41 +96,16 @@
                 <h6 class="card-text">Priority: {{task.priority}}</h6>
               </div>
             </div>
-            <!-- <div class="row">
-              <div class="col-lg-3">
-
-                <div class="card-item media"> <i class="fa fa-clock media-left media-right-margin color"></i>
-                  <div class="media-body">
-                    <p><strong>Time</strong> {{task.stop_time}}</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="card-item media"> <i class="fa fa-arrow-circle-up media-left media-right-margin color"></i>
-                  <div class="media-body">
-                    <p><strong> Proiarty</strong> {{task.priority}}</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="card-item media"> <i
-                    class=" fa fa-exclamation-circle  media-left media-right-margin color"></i>
-                  <div class="media-body">
-                    <p><strong>Status</strong> {{task.status}}</p>
-                  </div>
-                </div>
-              </div>
-            </div> -->
             <div class="row " id="btnDiv">
               <div class="col-md-6">
                 <a href="{{ url_for('edit_task', task_id=task.id) }}">
-                  <button type="submit" name="button" class="btn btn-gradient-success btn-rounded mr-2">
+                  <button type="submit" name="button" class="btn btn-gradient-success btn-rounded mr-2"  style="margin-left: 10px;margin-bottom: 10px;">
                     <i class="mdi mdi-pencil"></i> Edit 
                   </button></a>
               </div>
               <div class="col-md-6">
                 <a href="{{ url_for('delete_task', task_id=task.id) }}">
-                  <button type="submit" name="button" class="btn btn-gradient-danger btn-rounded mr-2">
+                  <button type="submit" name="button" class="btn btn-gradient-danger btn-rounded mr-2"  style="margin-left: 10px;margin-bottom: 10px;">
                     <i class="mdi mdi-delete"></i> Delete 
                   </button></a>
               </div>
@@ -139,90 +114,11 @@
           </div>
         </div>
         {% endfor %}
-        <!-- {% for task in tasks %}
-        <div class="col-md-4 stretch-card grid-margin">
-          <div class="card bg-gradient-secondary card-img-holder text-white">
-            <div class="card-body">
-              <img
-                src="/static/images/circle.png"
-                class="card-img-absolute"
-                alt="circle-image"
-              />
-              <input
-                type="checkbox"
-                name="status"
-                class="size"
-                id="checkComplete"
-              />
-
-              <h4 class="font-weight-normal mb-3">
-                <i
-                  class="mdi mdi-alert-circle-outline mdi-24px float-right"
-                ></i>
-                {{task.name}}
-              </h4>
-              <h3 class="mb-5">
-                <i class="mdi mdi-camera-timer mdi-24px float-right"></i>
-                Remaining Time:
-                <span
-                  class="error-message"
-                  id="countdownTimer_{{ task.id }}"
-                ></span>
-              </h3>
-              <div class="row">
-                <div class="col-md-6">
-                  <h6 class="card-text">Start Date: {{task.start_date}}</h6>
-                  <h6 class="card-text">Status: {{task.status}}</h6>
-
-                  <h6 class="card-text">Tim: {{task.stop_time}}</h6>
-                </div>
-                <div class="col-md-6">
-                  <h6 class="card-text">End Date: {{task.end_date}}</h6>
-                  <h6 class="card-text">Priority: {{task.priority}}</h6>
-                </div>
-              </div>
-             <div class="row" id="btnDiv">
-    <div class="col-md-6">
-        <a href="{{ url_for('edit_task', task_id=task.id) }}">
-            <button
-                type="button"
-                class="btn btn-gradient-primary btn-rounded btn-fw p-20 m-20"
-                id="editButton"
-                
-            >
-                Edit
-            </button>
-        </a>
-    </div>
-    <div class="col-md-6">
-        <a href="{{ url_for('delete_task', task_id=task.id) }}">
-            <button
-                type="button"
-                class="btn btn-gradient-danger btn-rounded btn-fw p-20 m-20"
-                style="margin-right: 10px;margin-bottom: 10px;"
-
-            >
-                Delete
-            </button>
-        </a>
-    </div>
-</div>
-
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {% endfor %} -->
+        
       </div>
-      <!-- content-wrapper ends -->
-      <!-- partial:partials/_footer.html -->
-
-      <!-- partial -->
+      
     </div>
-    <!-- main-panel ends -->
   </div>
-  <!-- page-body-wrapper ends -->
 </div>
 <script>
   function updateCountdownTimer(taskId, endDate, stopTime) {
@@ -302,5 +198,4 @@
   });
 </script>
 
-<!-- End custom js for this page -->
 {% endblock %}

@@ -1,8 +1,6 @@
 {% extends "base.html" %} {% block content %}
 
-  <!-- partial -->
   <div class="container-fluid page-body-wrapper">
-    <!-- partial:../../partials/_sidebar.html -->
 
     <nav class="sidebar sidebar-offcanvas" id="sidebar">
       <ul class="nav">
@@ -11,7 +9,6 @@
             <div class="nav-profile-image">
               <img src="/static/images/user.png" alt="profile" />
               <span class="login-status online"></span>
-              <!--change to offline or busy as needed-->
             </div>
             <div class="nav-profile-text d-flex flex-column">
               <span class="font-weight-bold mb-2">{{user_name}}</span>
@@ -195,7 +192,6 @@
                     </div>
                   </div>
                 </div>
-                <!-- add button add task and cancel -->
                 <button
                   type="submit"
                   name="button"
