@@ -254,6 +254,7 @@ def update_task(task_id):
     headers = {
         'Content-Type': 'application/json'
     }
+    print(obj,'**************************************************')
     response = requests.put(url, json=obj, headers=headers)
     if response.status_code == 200:
         flash(f"Task Successfully updated1", 'success')
