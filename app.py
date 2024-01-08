@@ -152,6 +152,7 @@ def update_user(user_id):
     }
     
     response = requests.put(url, json=obj, headers=headers)
+    print(response,'@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
     if response.status_code == 200:
         flash(f"User Information Successfully updated", 'success')
 

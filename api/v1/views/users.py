@@ -75,7 +75,6 @@ def update_user(user_id):
         return jsonify({"error" :"object instance not found"}), 404
     # validate email of the obj with the 
     kwargs = request.get_json()
-    print(Kwargs)
     return update_match(get_user_obj, kwargs)
   
 @app_views.route(
