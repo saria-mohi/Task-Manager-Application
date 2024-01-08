@@ -187,6 +187,8 @@ def get_task(user_id):
 @app.route('/create_task/<user_id>', methods=['POST'], strict_slashes=False)
 def create_task(user_id):
     user_task = storage.get(User, user_id).tasks
+    user = storage.get(User, user_id)
+
 
     """Get the properties of this new obj instance of tasks create this obj via API"""
     name = request.form['name']
@@ -213,28 +215,32 @@ def create_task(user_id):
     # validate status code
     if data.status_code == 201:
         flash("tasks created successfully", "success")
-        return redirect(url_for ('get_task', user_id=user_id) )
+        return redirect(url_for ('get_task', user_id=user_id, user=user) )
     else:
         flash("Failed to create tasks, It's already Exist you can try to update or us different Name", "danger")
-        return render_template('add_task.html', user_id=user_id)
+        return render_template('add_task.html', user_id=user_id, user=user)
 
 
 @app.route('/add_tasks/<user_id>', strict_slashes=False)
 def add_task(user_id):
-  """ Render the tasks page for Adding a new obj insance"""
-  return render_template('add_task.html',user_id=user_id)
+    """ Render the tasks page for Adding a new obj insance"""
+    user = storage.get(User, user_id)
+    return render_template('add_task.html',user_id=user_id, user=user)
 
 
 
 @app.route('/edit_task/<task_id>', strict_slashes=False)
-def edit_task(task_id):
+def edit_task(task_id,user_id='fa465a3f-2d87-48e7-a307-be9a7a929775'):
   get_tasks = storage.get(Task, task_id)
   """Render the edit page with necessary information to Edit a tasks."""
-  return render_template('edit_task.html', task=get_tasks)
+  user = storage.get(User, user_id)
+  return render_template('edit_task.html', task=get_tasks, user=user)
 
 @app.route('/update_task/<task_id>', methods=['POST'], strict_slashes=False)
 def update_task(task_id):
     user_id = storage.get(Task, task_id).user_id
+    user = storage.get(User, user_id)
+
     
     name = request.form['name']
     start_date = request.form['start_date']
@@ -260,11 +266,11 @@ def update_task(task_id):
     if response.status_code == 200:
         flash(f"Task Successfully updated1", 'success')
 
-        return redirect(url_for('get_task', user_id=user_id))
+        return redirect(url_for('get_task', user_id=user_id, user=user))
     else:
         flash("Faile to update credentials", "danger")
-        return redirect(url_for('get_task', user_id=user_id))
-    pass
+        return redirect(url_for('get_task', user_id=user_id, user=user))
+    
  
 
   
